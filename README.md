@@ -78,9 +78,8 @@ Ir a portal llevara a una sesion de login con usuario y contraseña
 
 solo puse 2 usuarios que en este caso son:
 
-   usuario | contraseña
-   daniel    12345
-   kali      umpalumpa28
+   usuario: daniel  contraseña: 12345
+   usuario: kali   contraseña: umpalumpa28
 
    cualquier otro intento llevaria a la pagina mandando error, o dando error de CSRF
 
