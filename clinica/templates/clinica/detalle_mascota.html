@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ mascota.nombre }}</title>
+</head>
+<body>
+    <h1>{{ mascota.nombre }}</h1>
+    <p>Especie: {{ mascota.especie }}</p>
+    <p>Raza: {{ mascota.raza }}</p>
+    <p>Edad: {{ mascota.edad }}</p>
+    <p>Dueño: <a href="{% url 'detalle_cliente' mascota.cliente.pk %}">{{ mascota.cliente.nombre }}</a></p>
+
+    <h2>Historial Médico</h2>
+    <ul>
+        {% for historial in mascota.historiales.all %}
+        <li>{{ historial.fecha_visita }}: {{ historial.descripcion }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

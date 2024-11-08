@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ cliente.nombre }}</title>
+</head>
+<body>
+    <h1>{{ cliente.nombre }}</h1>
+    <p>Dirección: {{ cliente.direccion }}</p>
+    <p>Teléfono: {{ cliente.telefono }}</p>
+    <p>Email: {{ cliente.email }}</p>
+
+    <h2>Mascotas</h2>
+    <ul>
+        {% for mascota in cliente.mascotas.all %}
+        <li><a href="{% url 'detalle_mascota' mascota.pk %}">{{ mascota.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
