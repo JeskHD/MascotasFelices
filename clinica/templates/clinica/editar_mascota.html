@@ -1,0 +1,26 @@
+{% extends 'clinica/base.html' %}
+{% load static %}
+
+{% block title %}Editar Mascota{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Editar Información de la Mascota</h1>
+    <form method="post" action="{% url 'editar_mascota' mascota.id %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.nombre.label_tag }} {{ form.nombre }}
+        </div>
+        <div class="mb-3">
+            {{ form.especie.label_tag }} {{ form.especie }}
+        </div>
+        <div class="mb-3">
+            {{ form.raza.label_tag }} {{ form.raza }}
+        </div>
+        <div class="mb-3">
+            {{ form.edad.label_tag }} {{ form.edad }}
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Guardar Cambios</button>
+    </form>
+</div>
+{% endblock %}

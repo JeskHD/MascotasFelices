@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}La Clínica Veterinaria{% endblock %}</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'icons' %}" rel="stylesheet">
+
+    <!-- Eliminamos la referencia a Bootstrap Icons si no están funcionando -->
+    <!-- <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet"> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .navbar { background-color: #007bff; }
+        .navbar-brand img { height: 40px; width: auto; }
+        .header-contact {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .header-contact a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .header-message {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .header-message h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            line-height: 1.2;
+        }
+        .gallery img { 
+            height: 150px; 
+            margin: 10px; 
+            border-radius: 5px; 
+        }
+        /* Eliminamos el estilo para el icono de inicio de sesión */
+        /* .login-icon { font-size: 1.5rem; color: white; margin-right: 5px; } */
+        .footer {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            margin-top: auto;
+            width: 100%;
+        }
+        .footer a {
+            color: white;
+            margin: 0 10px;
+        }
+        .container {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header de Contacto -->
+    <div class="header-contact">
+        <span>91 439 86 30</span>
+        <a href="mailto:consultas@laclinicaveterinaria.com">consultas@laclinicaveterinaria.com</a>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'images/LOGOPA.png' %}" alt="Logo" width="300px" height="200px">
+                <span style="color:#ffffff; font-family:Verdana, Geneva, Tahoma, sans-serif"> La clínica veterinaria</span>
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a href="{% url 'home' %}" class="nav-link text-white">Inicio</a>
+                <a href="#" class="nav-link text-white">La Clínica</a>
+                <a href="#" class="nav-link text-white">Nuestros centros</a>
+                <a href="#" class="nav-link text-white">Planes de Salud Veterinarios</a>
+                <a href="#" class="nav-link text-white">Servicios</a>
+                <a href="#" class="nav-link text-white">Blog</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'portal' %}" class="nav-link text-white">Ir a Portal</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="nav-link text-white">Inicio de Sesión</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido de la página -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <div class="footer">
+        <span>Síguenos en:</span>
+        <!-- Reemplazamos los iconos por texto si no se ven -->
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">Twitter</a>
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} text-center">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Clínica Veterinaria</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .navbar { background-color: #007bff; }
+        .navbar-brand img { height: 40px; width: auto; }
+        .header-contact {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .header-contact a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .header-message {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        /* Estilo del título principal */
+        .header-message h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            line-height: 1.2;
+        }
+        .gallery img { 
+            height: 150px; 
+            margin: 10px; 
+            border-radius: 5px; 
+        }
+        .login-icon { font-size: 1.5rem; color: white; margin-right: 5px; }
+        /* Pie de página fijo */
+        .footer {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            margin-top: auto;
+            width: 100%;
+        }
+        .footer a {
+            color: white;
+            margin: 0 10px;
+        }
+        /* Espaciado entre contenido y pie de página */
+        .container {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header de Contacto -->
+    <div class="header-contact">
+        <span><i class="bi bi-telephone"></i> 91 439 86 30</span>
+        <a href="mailto:consultas@laclinicaveterinaria.com"><i class="bi bi-envelope"></i> consultas@laclinicaveterinaria.com</a>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="imagenesui/LOGOPA.png" alt="Logo" width="300px" height="200px"> <span style="color:#ffffff; font-family:Verdana, Geneva, Tahoma, sans-serif"> La clínica veterinaria</span></a>
+            <div class="navbar-nav ms-auto">
+                <a href="#" class="nav-link text-white">Inicio</a>
+                <a href="#" class="nav-link text-white">La Clínica</a>
+                <a href="#" class="nav-link text-white">Nuestros centros</a>
+                <a href="#" class="nav-link text-white">Planes de Salud Veterinarios</a>
+                <a href="#" class="nav-link text-white">Servicios</a>
+                <a href="#" class="nav-link text-white">Blog</a>
+                <a href="#" class="nav-link text-white d-flex align-items-center">
+                    <i class="bi bi-person-circle login-icon"></i> Inicio de Sesión
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mensaje Principal -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="header-message">
+                    <h1>40 años tratando mascotas en Madrid</h1>
+                    <p>En nuestra clínica veterinaria tratamos no solo a tu perro, a tu gato o a la mascota que tengas, tratamos a tu familia, mejorando juntos para ofrecerte un trato humano y el mejor servicio veterinario.</p>
+                    <p>Disponemos de dos clínicas veterinarias en Madrid y una tercera en Rivas Vaciamadrid que cuentan con todos los servicios y los mejores profesionales veterinarios.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Galería de Imágenes -->
+        <div class="row gallery text-center mt-4">
+            <div class="col"><img src="imagenesui/perrito1.jpeg" alt="Imagen Perrito 1"></div>
+            <div class="col"><img src="imagenesui/perrito2.jpeg" alt="Imagen Perrito 2"></div>
+            <div class="col"><img src="imagenesui/perrito3.jpeg" alt="Imagen Perrito 3"></div>
+            <div class="col"><img src="imagenesui/perrito4.jpeg" alt="Imagen Perrito 4"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <span>Síguenos en:</span>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-youtube"></i></a>
+        <a href="#"><i class="bi bi-twitter"></i></a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

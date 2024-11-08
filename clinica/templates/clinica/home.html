@@ -1,0 +1,27 @@
+{% extends 'clinica/base.html' %}
+{% load static %}
+
+{% block title %}Inicio - La Clínica Veterinaria{% endblock %}
+
+{% block content %}
+<!-- Mensaje Principal -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="header-message">
+                <h1>40 años tratando mascotas en Madrid</h1>
+                <p>En nuestra clínica veterinaria tratamos no solo a tu perro, a tu gato o a la mascota que tengas, tratamos a tu familia, mejorando juntos para ofrecerte un trato humano y el mejor servicio veterinario.</p>
+                <p>Disponemos de dos clínicas veterinarias en Madrid y una tercera en Rivas Vaciamadrid que cuentan con todos los servicios y los mejores profesionales veterinarios.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Galería de Imágenes -->
+    <div class="row gallery text-center mt-4">
+        <div class="col"><img src="{% static 'images/perrito1.jpeg' %}" alt="Imagen Perrito 1"></div>
+        <div class="col"><img src="{% static 'images/perrito2.jpeg' %}" alt="Imagen Perrito 2"></div>
+        <div class="col"><img src="{% static 'images/perrito3.jpeg' %}" alt="Imagen Perrito 3"></div>
+        <div class="col"><img src="{% static 'images/perrito4.jpeg' %}" alt="Imagen Perrito 4"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<h2>Perfil de {{ client.nombre }}</h2>
+<p>Email: {{ client.email }}</p>
+<p>Teléfono: {{ client.telefono }}</p>
+
+<h3>Mascotas</h3>
+<table>
+    <tr><th>Nombre</th><th>Especie</th><th>Raza</th><th>Edad</th><th>Acciones</th></tr>
+    {% for pet in pets %}
+        <tr>
+            <td>{{ pet.nombre }}</td><td>{{ pet.especie }}</td><td>{{ pet.raza }}</td><td>{{ pet.edad }}</td>
+            <td><a href="#">Editar</a> | <a href="#">Eliminar</a></td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="5">No hay mascotas registradas.</td></tr>
+    {% endfor %}
+</table>
+
+<h3>Añadir Mascota</h3>
+<form method="post">{% csrf_token %}{{ form.as_p }}<button type="submit">Añadir</button></form>

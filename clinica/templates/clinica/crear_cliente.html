@@ -1,0 +1,54 @@
+{% extends 'clinica/base.html' %}
+{% load static %}
+
+{% block title %}Añadir Cliente y Mascota{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Añadir Cliente y Mascota</h1>
+    <form method="post" action="{% url 'crear_cliente' %}">
+        {% csrf_token %}
+        
+        <!-- Formulario de Cliente -->
+        <h5>Información del Cliente</h5>
+        <div class="mb-3">
+            {{ cliente_form.nombre.label_tag }} {{ cliente_form.nombre }}
+        </div>
+        <div class="mb-3">
+            {{ cliente_form.direccion.label_tag }} {{ cliente_form.direccion }}
+        </div>
+        <div class="mb-3">
+            {{ cliente_form.telefono.label_tag }} {{ cliente_form.telefono }}
+        </div>
+        <div class="mb-3">
+            {{ cliente_form.email.label_tag }} {{ cliente_form.email }}
+        </div>
+
+        <!-- Formulario de Mascota -->
+        <h5>Información de la Mascota</h5>
+        <div class="mb-3">
+            {{ mascota_form.nombre.label_tag }} {{ mascota_form.nombre }}
+        </div>
+        <div class="mb-3">
+            {{ mascota_form.especie.label_tag }} {{ mascota_form.especie }}
+        </div>
+        <div class="mb-3">
+            {{ mascota_form.raza.label_tag }} {{ mascota_form.raza }}
+        </div>
+        <div class="mb-3">
+            {{ mascota_form.edad.label_tag }} {{ mascota_form.edad }}
+        </div>
+
+        <!-- Historial Médico de la Mascota -->
+        <h6>Historial Médico</h6>
+        <div class="mb-3">
+            {{ historial_form.fecha_visita.label_tag }} {{ historial_form.fecha_visita }}
+        </div>
+        <div class="mb-3">
+            {{ historial_form.descripcion.label_tag }} {{ historial_form.descripcion }}
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Guardar Cliente y Mascota</button>
+    </form>
+</div>
+{% endblock %}

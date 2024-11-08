@@ -1,0 +1,129 @@
+{% extends 'clinica/base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - La Clínica Veterinaria{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <!-- Opciones Rápidas -->
+        <div class="col-12 d-flex justify-content-between mb-4">
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <i class="bi bi-person-fill h1"></i>
+                    <h5 class="card-title">Administrar Clientes</h5>
+                    <a href="{% url 'administrar_clientes' %}" class="btn btn-primary">Ir</a>
+                </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <i class="bi bi-clipboard-plus h1"></i>
+                    <h5 class="card-title">Registrar Mascota</h5>
+                    <a href="{% url 'registrar_mascota' %}" class="btn btn-primary">Ir</a>
+                </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <i class="bi bi-journal-medical h1"></i>
+                    <h5 class="card-title">Historial Médico</h5>
+                    <a href="{% url 'historial_medico' %}" class="btn btn-primary">Ir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Sección de Estadísticas -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Estadísticas de Clientes
+                </div>
+                <div class="card-body">
+                    <canvas id="clientesChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Estadísticas de Mascotas
+                </div>
+                <div class="card-body">
+                    <canvas id="mascotasChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Lista de Actividad Reciente -->
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    Actividad Reciente
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Cliente</th>
+                                <th>Mascota</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Aquí puedes iterar sobre la actividad reciente -->
+                            <tr>
+                                <td>2024-11-08</td>
+                                <td>Daniel</td>
+                                <td>Rex</td>
+                                <td>Consulta de control general</td>
+                            </tr>
+                            <tr>
+                                <td>2024-11-07</td>
+                                <td>Kali</td>
+                                <td>Whiskers</td>
+                                <td>Vacunación anual</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts para gráficos (opcional) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Ejemplo de gráfico de clientes
+    var ctx = document.getElementById('clientesChart').getContext('2d');
+    var clientesChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Activos', 'Inactivos'],
+            datasets: [{
+                label: 'Clientes',
+                data: [60, 40],
+                backgroundColor: ['#007bff', '#28a745']
+            }]
+        }
+    });
+
+    // Ejemplo de gráfico de mascotas
+    var ctx2 = document.getElementById('mascotasChart').getContext('2d');
+    var mascotasChart = new Chart(ctx2, {
+        type: 'pie',
+        data: {
+            labels: ['Perros', 'Gatos', 'Aves', 'Otros'],
+            datasets: [{
+                label: 'Mascotas',
+                data: [45, 30, 15, 10],
+                backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545']
+            }]
+        }
+    });
+</script>
+{% endblock %}
